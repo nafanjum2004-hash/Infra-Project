@@ -1,0 +1,18 @@
+body {
+    padding-bottom: 60px;
+}
+.card-title {
+    margin-bottom: .75rem;
+}
+.navbar-brand {
+    font-weight: 700;
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(0,0,0,0.03);
+}
+
+@media (max-width: 576px) {
+    .navbar .form-control {
+        width: 120px;
+    }
+}

@@ -1,0 +1,6 @@
+---
+- name: Extract application package
+  unarchive:
+    src: "/tmp/{{ package_name }}"
+    dest: "{{ package_extract_path }}"
+    remote_src: true

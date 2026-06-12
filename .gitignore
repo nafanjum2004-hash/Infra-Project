@@ -1,0 +1,20 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Java
+target/
+*.jar
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+
+d e p l o y m e n t - p a c k a g e / * . j a r 
+ 
+ 

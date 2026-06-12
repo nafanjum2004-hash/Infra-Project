@@ -1,0 +1,7 @@
+---
+- import_tasks: create_directory.yml
+- import_tasks: download_package.yml
+- import_tasks: configure_application.yml
+- import_tasks: create_service.yml
+- import_tasks: start_service.yml
+- import_tasks: health_check.yml

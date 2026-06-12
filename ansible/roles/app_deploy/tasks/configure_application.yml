@@ -1,0 +1,13 @@
+---
+- name: Copy application jar
+  copy:
+    src: /tmp/app.jar
+    dest: "{{ app_directory }}/app.jar"
+    remote_src: yes
+    mode: '0755'
+
+- name: Create application configuration file
+  template:
+    src: application.properties.j2
+    dest: "{{ app_directory }}/application.properties"
+    mode: '0644'

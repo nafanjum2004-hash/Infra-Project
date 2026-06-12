@@ -1,0 +1,10 @@
+---
+- name: Enable employee management service
+  systemd:
+    name: employee-management
+    enabled: true
+
+- name: Start employee management service
+  systemd:
+    name: employee-management
+    state: started

@@ -1,0 +1,15 @@
+---
+- name: Wait for application to start
+  pause:
+    seconds: 30
+
+- name: Verify application health endpoint
+  uri:
+    url: "http://localhost:8080/health"
+    method: GET
+    status_code: 200
+  register: health_response
+
+- name: Display health response
+  debug:
+    var: health_response.json

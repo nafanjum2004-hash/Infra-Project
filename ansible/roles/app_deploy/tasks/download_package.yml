@@ -1,0 +1,6 @@
+---
+- name: Download application package
+  get_url:
+    url: "{{ package_url }}"
+    dest: "/tmp/{{ package_name }}"
+    mode: '0644'

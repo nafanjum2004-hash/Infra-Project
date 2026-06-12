@@ -1,0 +1,8 @@
+---
+app_directory: /opt/employee-management
+
+package_url: "https://nafreen-employee-management-artifacts.s3.ap-south-1.amazonaws.com/app.jar?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4J5YEEDCJZRWSHU%2F20260611%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260611T062526Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=db73c82760ba1862e4fbc0db88f639b8858067212cac4b9992e9e7f36eb6e1d8"
+
+package_name: "app.jar"
+
+app_port: 8080

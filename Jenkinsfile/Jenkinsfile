@@ -1,0 +1,74 @@
+pipeline {
+    agent any
+
+    environment {
+        TF_VAR_FILE = "terraform/environments/dev/terraform.tfvars"
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Application') {
+            steps {
+                dir('application') {
+                    bat 'mvn clean package'
+                }
+            }
+        }
+
+        stage('Terraform Init') {
+            steps {
+                dir('terraform') {
+                    bat 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Validate') {
+            steps {
+                dir('terraform') {
+                    bat 'terraform validate'
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                dir('terraform') {
+                    bat 'terraform plan -var-file=environments/dev/terraform.tfvars'
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                dir('terraform') {
+                    bat 'terraform apply -auto-approve -var-file=environments/dev/terraform.tfvars'
+                }
+            }
+        }
+
+        stage('Generate Inventory') {
+            steps {
+                echo 'Generate inventory from Terraform output'
+            }
+        }
+
+        stage('Run Ansible') {
+            steps {
+                echo 'Run Ansible deployment'
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                echo 'Verify application health endpoint'
+            }
+        }
+    }
+}
