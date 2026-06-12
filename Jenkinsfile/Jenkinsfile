@@ -13,8 +13,6 @@ pipeline {
             }
         }
 
-        
-
         stage('Terraform Init') {
             steps {
                 dir('terraform') {
@@ -28,7 +26,6 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-    }
 
         stage('Terraform Validate') {
             steps {
