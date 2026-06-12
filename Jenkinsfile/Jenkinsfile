@@ -13,13 +13,7 @@ pipeline {
             }
         }
 
-        stage('Build Application') {
-            steps {
-                dir('application') {
-                    sh 'mvn clean package'
-                }
-            }
-        }
+        
 
         stage('Terraform Init') {
             steps {
@@ -27,6 +21,13 @@ pipeline {
                     sh 'terraform init'
                 }
             }
+        }
+
+        stage('Build Application') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
         }
 
         stage('Terraform Validate') {
